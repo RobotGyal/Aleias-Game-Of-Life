@@ -4,8 +4,8 @@ var cells;
 var grid;
 
 function setup () {
-  createCanvas(400, 400);
-   grid = new Grid(20);
+  createCanvas(600, 600);
+   grid = new Grid(10);
    grid.randomize();
 }
 
