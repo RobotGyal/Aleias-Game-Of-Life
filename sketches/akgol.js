@@ -4,20 +4,18 @@
 var grid;
 
 function setup () {
-  createCanvas(400, 400);
-   grid = new Grid(20);
+  createCanvas(1000, 1000);
+   grid = new Grid(10);
    grid.randomize();
 }
 
 function draw () {
-  background(250);
+  background(100);
   grid.updateNeighborCounts();
   grid.updatePopulation();
   grid.draw();
   
 }
-
-
 
 
 function mousePressed()
@@ -26,21 +24,6 @@ function mousePressed()
   //grid.updateNeighborCounts();
   //grid.updatePopulation();
   print(grid.cells)
-  
-  /*var randomColumn = floor(random(grid.numberOfColumns));
-  var randomRow = floor(random(grid.numberOfRows));
-
-  var randomCell = grid.cells[randomColumn][randomRow];
-  var neighborCount = grid.getNeighbors(randomCell).length;
-
-  print("cell at " + randomCell.column + ", " + randomCell.row + " has " + neighborCount + " neighbors");
-
-
-  print(grid.isValidPosition(0, 0)); // should be true
-  print(grid.isValidPosition(-1, -1)); // should be false
-  */
-
-
 }
 
 
@@ -133,6 +116,14 @@ class Grid {
     }
   }
   
+    displayText()
+  {
+    textAlign(LEFT, BASELINE)
+    fill(255, 216, 0)
+    text('Alive Cells' )
+  }
+  
+  
 }
 
 
@@ -153,7 +144,8 @@ class Cell {
           fill(0);
         }
         noStroke();
-        rect(this.column * this.size + 1, this.row * this.size + 1, this.size - 1, this.size - 1);
+        /*rect(this.column * this.size + 1, this.row * this.size + 1, this.size - 1, this.size - 1);*/
+        polygon(this.column * this.size + 1, this.row * this.size + 1, this.size - 1, 8)
   }
   
   setIsAlive(value){
@@ -176,6 +168,17 @@ class Cell {
       this.isAlive = true;
     }
   }
+
   
-  
+}
+
+function polygon(x, y, radius, npoints){
+    let angle = TWO_PI / npoints;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius;
+    let sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
 }
