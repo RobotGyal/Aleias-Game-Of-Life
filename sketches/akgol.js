@@ -2,11 +2,14 @@
 
 //var cells;
 var grid;
+var button;
 
 function setup () {
-  createCanvas(1000, 1000);
-   grid = new Grid(10);
-   grid.randomize();
+  createCanvas(700, 700);
+  grid = new Grid(20);
+  grid.randomize();
+  createButton("RESET");
+ button.mousePressed(setup)
 }
 
 function draw () {
@@ -18,13 +21,14 @@ function draw () {
 }
 
 
-function mousePressed()
+/*function mousePressed()
 {
   //grid.randomize();
   //grid.updateNeighborCounts();
   //grid.updatePopulation();
-  print(grid.cells)
-}
+  print(grid.cells);
+  setup();
+}*/
 
 
 class Grid {
@@ -115,14 +119,6 @@ class Grid {
       }
     }
   }
-  
-    displayText()
-  {
-    textAlign(LEFT, BASELINE)
-    fill(255, 216, 0)
-    text('Alive Cells' )
-  }
-  
   
 }
 
