@@ -1,0 +1,15 @@
+body {
+  padding: 0;
+  margin: 40px;
+  text-align: center;
+  border-style: double groove;
+  border-color: gray;
+  border-width: 12px;
+}
+
+h1 {
+  color: purple;
+  font-family : "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 8px #FF0000;
+}
