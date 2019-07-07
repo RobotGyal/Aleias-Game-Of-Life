@@ -3,29 +3,33 @@
 //var cells;
 var grid;
 var button;
+var fr;
 
 function setup () {
   createCanvas(700, 700);
   grid = new Grid(20);
   grid.randomize();
-  createButton("RESET");
- button.mousePressed(setup)
+  //button = createButton("RESET");
+ //button.mousePressed(setup)
+ //text(grid.countNumAlive(), 10, 5)
+ //grid.countNumAlive();
 }
 
 function draw () {
   background(100);
+  frameRate(fr);
   grid.updateNeighborCounts();
   grid.updatePopulation();
   grid.draw();
   
 }
 
+function reset() {
+  setup()
+}
 
 /*function mousePressed()
 {
-  //grid.randomize();
-  //grid.updateNeighborCounts();
-  //grid.updatePopulation();
   print(grid.cells);
   setup();
 }*/
@@ -120,6 +124,23 @@ class Grid {
     }
   }
   
+  
+  /*countNumAlive(){
+  var totalAlive = [];
+  
+  for (var column = 0; column < this.numberOfColumns; column ++) {
+      for (var row = 0; row < this.numberOfRows; row++) {
+        if (this.cells[column][row].isAlive === true){
+          totalAlive.push(this.cells[column][row]);
+        }
+        else{
+          return 0;
+        }
+      }
+  }
+  print(totalAlive.length)
+}*/
+  
 }
 
 
@@ -140,7 +161,6 @@ class Cell {
           fill(0);
         }
         noStroke();
-        /*rect(this.column * this.size + 1, this.row * this.size + 1, this.size - 1, this.size - 1);*/
         polygon(this.column * this.size + 1, this.row * this.size + 1, this.size - 1, 8)
   }
   
@@ -165,8 +185,8 @@ class Cell {
     }
   }
 
-  
 }
+
 
 function polygon(x, y, radius, npoints){
     let angle = TWO_PI / npoints;
