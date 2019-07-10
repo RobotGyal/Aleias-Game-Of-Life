@@ -2,18 +2,22 @@
 <html>
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-    <script src="akgol.js"></script>
-    <script src="index.css"</script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script language="javascript" type="text/javascript"
+src ="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.js"></script>
+    <script src = "p5.dom.js"></script>
+    <script src="sketch.js"></script>
   </head>
+  
   <body>
     <h1>Aleia's Customized Game of Life</h1> 
     <button onclick="reset()"> RESET!! </button>
     <br><br>
     <div>
-      <input type="range" id="slider" name="speed" min="5" max="50" value="20" step="5" onchange="frameRate()">
       <label for="range">Speed</label>
+      <input width="400" type="range" min="5" max="50" name="speed" value="20" step="5" onchange="show_value(this.value);">
+      <span id="slider_value" style="color:red;"></span>
+
     </div>
     
   </body>
