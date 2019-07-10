@@ -1,28 +1,34 @@
 
-
-//var cells;
 var grid;
 var button;
+var slider;
 var fr;
 
 function setup () {
+  frameRate(fr);
   createCanvas(700, 700);
   grid = new Grid(20);
   grid.randomize();
-  //button = createButton("RESET");
- //button.mousePressed(setup)
- //text(grid.countNumAlive(), 10, 5)
- //grid.countNumAlive();
 }
+
+//for slider
+function show_value(x)
+{
+ document.getElementById("slider_value").innerHTML=x;
+ fr = x;
+}
+
+
 
 function draw () {
   background(100);
-  frameRate(fr);
+  //frameRate(document.getElementById("slider_value").innerHTML);  //currently reading the default framrate from system
   grid.updateNeighborCounts();
   grid.updatePopulation();
   grid.draw();
-  
+  //fr= document.getElementById("slider_value").innerHTML;
 }
+
 
 function reset() {
   setup()
@@ -124,7 +130,7 @@ class Grid {
     }
   }
   
-  
+  //for counting number of alive cells
   /*countNumAlive(){
   var totalAlive = [];
   
@@ -187,7 +193,7 @@ class Cell {
 
 }
 
-
+//for creating octogon shape
 function polygon(x, y, radius, npoints){
     let angle = TWO_PI / npoints;
   beginShape();
