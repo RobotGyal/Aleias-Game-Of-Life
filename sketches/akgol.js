@@ -130,23 +130,6 @@ class Grid {
     }
   }
   
-  //for counting number of alive cells
-  /*countNumAlive(){
-  var totalAlive = [];
-  
-  for (var column = 0; column < this.numberOfColumns; column ++) {
-      for (var row = 0; row < this.numberOfRows; row++) {
-        if (this.cells[column][row].isAlive === true){
-          totalAlive.push(this.cells[column][row]);
-        }
-        else{
-          return 0;
-        }
-      }
-  }
-  print(totalAlive.length)
-}*/
-  
 }
 
 
