@@ -13,3 +13,7 @@ h1 {
   text-align: center;
   text-shadow: 2px 2px 8px #FF0000;
 }
+
+html{
+  background-color: white;
+}
